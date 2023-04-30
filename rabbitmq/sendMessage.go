@@ -11,12 +11,8 @@ func SendMessage(user string, password string, url string, queueReturn bool, que
 
 	services.PublicSendQueue(channel, msg, queueReturn, queueRName, queueName)
 
-	if queueReturn == true {
-		data := services.ConsumeMessageQueue(channel, queueRName)
+	data := services.ConsumeMessageQueue(channel, queueRName)
 
-		return data
-	}
-
-	return nil
+	return data
 
 }
