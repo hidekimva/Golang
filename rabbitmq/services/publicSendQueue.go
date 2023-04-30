@@ -30,7 +30,7 @@ func PublicSendQueue(channel *amqp.Channel, msg interface{}, queueReturn bool, q
 		if err != nil {
 			log.Fatalln("Failed to send to queue: " + err.Error())
 		} else {
-			log.Println("Sent in queue successfully: ", body)
+			log.Println("Sent in queue successfully 2: ", body)
 		}
 	} else {
 		// Publica na fila de envio
