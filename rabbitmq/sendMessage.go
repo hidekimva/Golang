@@ -2,7 +2,7 @@ package rabbitmq
 
 import "github.com/hidekimva/golang/rabbitmq/services"
 
-func SendMessage(user string, password string, url string, queueReturn bool, queueName string, queueRName string, msg interface{}) []byte {
+func SendMessage(user string, password string, url string, queueReturn bool, queueName string, queueRName string, msg interface{}) {
 	conn := services.Connection(user, password, url)
 	defer conn.Close()
 
@@ -10,9 +10,5 @@ func SendMessage(user string, password string, url string, queueReturn bool, que
 	defer channel.Close()
 
 	services.PublicSendQueue(channel, msg, queueReturn, queueRName, queueName)
-
-	data := services.ConsumeMessageQueue(channel, queueRName)
-
-	return data
 
 }
