@@ -13,6 +13,10 @@ func CreateChannel(conn *amqp.Connection, queueR bool, queueRName string, queueN
 		log.Fatalln("Error creating channel with rabbitmq: ", err.Error())
 	}
 
+	if queueName == "" || queueRName == "" {
+		return channel
+	}
+
 	// Declara fila de retorno
 	if queueR == true {
 		_, err := channel.QueueDeclare(
