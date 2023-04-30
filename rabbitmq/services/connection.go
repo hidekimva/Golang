@@ -16,7 +16,5 @@ func Connection(user string, password string, url string) *amqp.Connection {
 		log.Fatalln("Failed to connect to RabbitMQ: ", err.Error())
 	}
 
-	log.Println("Success connecting to RabbitMQ")
-
 	return conn
 }
