@@ -3,14 +3,21 @@ package rabbitmq
 import (
 	"log"
 
-	"github.com/streadway/amqp"
+	"github.com/hidekimva/golang/rabbitmq/services"
 )
 
-func ConsumeMessageQueue(channel *amqp.Channel, queueRName string) []byte {
+func ConsumeMessageQueue(user string, password string, url string, queueName string) []byte {
+	var queueRname = ""
+	conn := services.Connection(user, password, url)
+	defer conn.Close()
+
+	channel := services.CreateChannel(conn, false, queueRname, queueName)
+	defer channel.Close()
+
 	// Consome mensagens da fila
 	for {
 		msgs, err := channel.Consume(
-			queueRName,
+			queueName,
 			"",
 			true,
 			false,
