@@ -28,6 +28,6 @@ func SendResponseMessage(user string, password string, url string, body []byte, 
 		},
 	)
 	if err != nil {
-		log.Fatalf("Falha ao enviar resposta: %v", err)
+		log.Fatalln("Failed to send reply: ", err.Error())
 	}
 }
