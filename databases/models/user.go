@@ -11,7 +11,7 @@ type User struct {
 	ID       string `gorm:"primary_key" json:"id"`
 	Name     string `json:"name" validate:"nonzero, regexp=^[a-zA-Z]*$"`
 	UserName string `json:"username" validate:"min=4,max=40,regexp=^[a-zA-Z]*$"`
-	Email    string `json:"email" validate:"email"`
+	Email    string `json:"email" validate:"nonzero"`
 	Password string `json:"password" validate:"nonzero, min=8"`
 }
 
