@@ -16,4 +16,5 @@ require (
 	github.com/jinzhu/now v1.1.5 // indirect
 	golang.org/x/crypto v0.6.0 // indirect
 	golang.org/x/text v0.7.0 // indirect
+	gopkg.in/validator.v2 v2.0.1 // indirect
 )
